@@ -17,7 +17,9 @@ class HelloMessage extends React.Component {
 
 ReactDOM.render(<HelloMessage name="John" />, document.getElementById('container'));
 ```
+
 - Next, modify the code to render a Calculator component and move the static html into the render method.
-- 
 
 ### Bonus
+
+- Can you add another mathematical method to your calculator?
