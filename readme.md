@@ -1,25 +1,29 @@
 # React Calculator 
 
-Tonight you will be building a Calculator with React.
+Tonight you will be building a calculator with React. At first your calculator will just add 2 numbers together when they are typed in. For the bonus, we might get more creative.
 
 ### Set Up
 You have been provided with a static html page `calc.html` that already includes babel and react. You simply need to add your react code inside the script tags in the file and open in the browser.
 
 ### Steps
 
-- Start by using a React example to render a component on the page:
+- Start by creating your parent component and mounting it with some sample text in it. You'll probably call it Calculator:
 ```js
-class HelloMessage extends React.Component {
+class Calculator extends React.Component {
   render() {
-    return (<div>Hello {this.props.name}</div>);
+    return (<div>Hello World!</div>);
   }
 };
 
-ReactDOM.render(<HelloMessage name="John" />, document.getElementById('container'));
+ReactDOM.render(<Calculator />, document.getElementById('container'));
 ```
 
-- Next, modify the code to render a Calculator component and move the static html into the render method.
+- Next, you'll want to port the relevant HTML code that already exists into JSX in your `render` method. At this point the page should look identical to how it started, except now we're rendering it with React.
+- Set up the initial state of your component. What state will you need to track? What values should those state items start with? What method will you initialize the state within?
+- Now you'll need to figure out how and when you want to listen for an event to trigger a calculation. Is it a click event, a submit event...? It's up to you to figure out what event you want to listen for and why. Here is a [list of events React supports](https://facebook.github.io/react/docs/events.html#supported-events) and [how to listen for them](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html).
+- Once you know what event to listen for, you'll need to create a method that accepts the triggered event, parses out the value from the `target` input, adds it to the value for the other input (or some default value if the other input is blank), and sets the state of the new `sum`.
+- Once the state of the `sum` has been set, React will re-render the whole component. Make sure you have a place in your JSX that displays the result!
 
 ### Bonus
 
-- Can you add another mathematical method to your calculator?
+- Make the calculator work with any of the 4 basic arithmetic operations (+, -, *, /). How will this change your state, and your JSX?
