@@ -9,22 +9,36 @@
   </head>
   <body>
     <div id="container">
-      <h1>Add with React!</h1>
-
-      <div class="add">
-        <input type="text" />
-        <span>+</span>
-        <input type="text" />
-        <span>=</span>
-        <h3><!-- Addition result goes here --> </h3>
-      </div>
-
     </div>
 
 
     <script type="text/babel">
-      // YOUR REACT CODE GOES HERE!
 
+    class Calculator extends React.Component {
+      constructor (){
+          super();
+          this.state = {sum: 0}
+      }
+      _add () {
+          let value1 = this.refs.value1.value || 0;
+          let value2 = this.refs.value2.value || 0;
+          this.setState({sum: parseInt(value1) + parseInt(value2)})
+        }
+      render() {
+        return (
+          <div className="add">
+            <h1>Add with React!</h1>
+            <input onKeyUp={ this._add.bind(this) } ref="value1" type="text" />
+            <span>+</span>
+            <input onKeyUp={ this._add.bind(this) } ref="value2" type="text" />
+            <span>=</span>
+            <h3> {this.state.sum} </h3>
+          </div>
+          );
+      }
+    };
+
+    ReactDOM.render(<Calculator />, document.getElementById('container'));
 
     </script>
 
