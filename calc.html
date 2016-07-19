@@ -8,23 +8,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
   </head>
   <body>
+
+
     <div id="container">
-      <h1>Add with React!</h1>
-
-      <div class="add">
-        <input type="text" />
-        <span>+</span>
-        <input type="text" />
-        <span>=</span>
-        <h3><!-- Addition result goes here --> </h3>
-      </div>
-
     </div>
 
 
     <script type="text/babel">
       // YOUR REACT CODE GOES HERE!
+      class Calculator extends React.Component {
+        constructor() {
+          super();
+          this.state = { sum: 0}
+        }
+        _add() {
+          let leftBox = parseInt(this.refs.leftBox.value) || 0;
+          let rightBox = parseInt(this.refs.rightBox.value) || 0;
+          this.setState({ sum: leftBox + rightBox });
+        }
+        render() {
+          return (
+            <div>
+            <h1>Add with React!</h1>
+              <input onKeyUp={ this._add.bind(this) } ref="leftBox" type="text" />
+              <span>+</span>
+              <input onKeyUp={ this._add.bind(this) } ref="rightBox" type="text" />
+              <span>=</span>
+              <h3> { this.state.sum }</h3>
+            </div>
+          );
+        }
+      };
 
+      ReactDOM.render(<Calculator />, document.getElementById('container'));
 
     </script>
 
