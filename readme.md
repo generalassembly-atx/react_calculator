@@ -7,7 +7,7 @@ You have been provided with a static html page `calc.html` that already includes
 
 ### Steps
 
-- Start by creating your parent component and mounting it with some sample text in it. You'll probably call it Calculator:
+1. Start by creating your a single component and mounting it with some sample text in it. Maybe you'll call it Calculator:
 ```js
 class Calculator extends React.Component {
   render() {
@@ -18,12 +18,12 @@ class Calculator extends React.Component {
 ReactDOM.render(<Calculator />, document.getElementById('container'));
 ```
 
-- Next, you'll want to port the relevant HTML code that already exists into JSX in your `render` method. At this point the page should look identical to how it started, except now we're rendering it with React.
-- Set up the initial state of your component. What state will you need to track? What values should those state items start with? What method will you initialize the state within?
-- Now you'll need to figure out how and when you want to listen for an event to trigger a calculation. Is it a click event, a submit event...? It's up to you to figure out what event you want to listen for, on which elements, and why. Here is a [list of events React supports](https://facebook.github.io/react/docs/events.html#supported-events) and [how to listen for them](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html).
-- Once you know what event to listen for, you'll need to create a method that accepts the triggered event, gets the input values from your form, adds them together, and sets the state of the new `sum`.
+2. Port the relevant HTML code that already exists into JSX in your `render` method. At this point the page should look identical to how it started, except now we're rendering it with React.
+3. Set up the initial state of your component. What state will you need to track? What values should those state items start with? Where is that state printed to the browser?
+4. You will need to figure out how and when you want to listen for an event to trigger a calculation. Is it a click event, a submit event...? It's up to you to figure out what event you want to listen for, on which elements, and why. Here is a [list of events React supports](https://facebook.github.io/react/docs/events.html#supported-events) and [how to listen for them](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html).
+5. Once you know what event to listen for, you'll need to create a method that accepts the triggered event, gets the input values from your form, adds them together, and sets the state of the new `sum`.
     - **thought**: how will you handle inputs that aren't numbers?
-- Once the state of the `sum` has been set, React will re-render the whole component. Make sure you have a place in your JSX that displays the result!
+6. Once the state of the `sum` has been set, React will re-render the whole component. Make sure you have a place in your JSX that displays the result!
 
 ### Bonus
 
