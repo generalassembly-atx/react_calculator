@@ -8,15 +8,15 @@ You have been provided with a static html page `calc.html` that already includes
 ### Steps
 
 1. Start by creating your a single component and mounting it with some sample text in it. Maybe you'll call it Calculator:
-```js
-class Calculator extends React.Component {
-  render() {
-    return (<div>Hello World!</div>);
-  }
-};
-
-ReactDOM.render(<Calculator />, document.getElementById('container'));
-```
+  ```js
+  class Calculator extends React.Component {
+    render() {
+      return (<div>Hello World!</div>);
+    }
+  };
+  
+  ReactDOM.render(<Calculator />, document.getElementById('container'));
+  ```
 
 2. Port the relevant HTML code that already exists into JSX in your `render` method. At this point the page should look identical to how it started, except now we're rendering it with React.
 3. Set up the initial state of your component. What state will you need to track? What values should those state items start with? Where is that state printed to the browser?
