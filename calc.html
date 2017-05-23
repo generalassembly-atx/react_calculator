@@ -24,6 +24,32 @@
 
     <script type="text/babel">
       // YOUR REACT CODE GOES HERE!
+      class Calculator extends React.Component {
+        constructor(){
+          super();
+          this.state = {sum: 0};
+        }
+        _addition(){
+          let leftBox = this.refs.leftBox.value || 0;
+          let rightBox = this.refs.rightBox.value || 0;
+          this.setState({sum: parseInt(leftBox) + parseInt(rightBox)});
+        }
+        render() {
+          return (
+            <div>
+              <h1>Add with React!</h1>
+              <div className="add">
+                <input onKeyUp={ this._addition.bind(this) } ref="leftBox" type="text" />
+                <span>+</span>
+                <input onKeyUp={ this._addition.bind(this) } ref="rightBox" type="text" />
+                <span>=</span>
+                <h3>{ this.state.sum }</h3>
+              </div>
+            </div>);
+        }
+      };
+
+      ReactDOM.render(<Calculator />, document.getElementById('container'));
 
 
     </script>
