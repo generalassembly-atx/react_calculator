@@ -16,14 +16,38 @@
         <span>+</span>
         <input type="text" />
         <span>=</span>
-        <h3><!-- Addition result goes here --> </h3>
+        <h3></h3>
       </div>
 
     </div>
 
 
     <script type="text/babel">
-      // YOUR REACT CODE GOES HERE!
+    class Calculator extends React.Component {
+      constructor (){
+        super();
+        this.state = {sum: 0}
+       }
+       _add () {
+          let num1 = this.refs.num1.value || 0;
+          let num2 = this.refs.num2.value || 0;
+          this.setState({answer: parseInt(num1) + parseInt(num2)})
+         }
+       render() {
+         return (
+           <div className="add">
+             <h1>Add with React!</h1>
+             <input onKeyUp={ this._add.bind(this) } ref="num1" type="text" />
+             <span>+</span>
+             <input onKeyUp={ this._add.bind(this) } ref="num2" type="text" />
+             <span>=</span>
+             <h3> {this.state.answer} </h3>
+           </div>
+           );
+       }
+     };
+ 
+     ReactDOM.render(<Calculator />, document.getElementById('container'));
 
 
     </script>
